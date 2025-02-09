@@ -82,7 +82,6 @@ const About = () => {
                         <div>
                             <p className="grid-headtext">Open to Remote Work Worldwide</p>
                             <p className="grid-subtext">Currently based in Vellore, Tamil Nadu, and available for global opportunities.</p>
-                            <div className="flex flex-col items-center gap-4">
                                 <a href="https://www.linkedin.com/in/ayush-parakh-263430251" target="_blank" rel="noopener noreferrer">
                                     <Button name="Contact Me on LinkedIn" isBeam containerClass="w-full mt-10" />
                                 </a>
@@ -92,7 +91,6 @@ const About = () => {
                                 </a>
                             </div>
 
-                        </div>
                     </div>
                 </div>
 
