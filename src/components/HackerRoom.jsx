@@ -11,7 +11,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 import { useMemo } from 'react'
 
 export default function Model(props) {
-    const monitorTexture = useTexture('textures/desk/monitor.png')
+    const monitorTexture = useTexture('/textures/desk/monitor.png')
     const { nodes, materials } = useGLTF('/model1/Computer.gltf')
     
     // Memoize materials to prevent re-creation

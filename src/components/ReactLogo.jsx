@@ -2,7 +2,7 @@ import { Float, useGLTF } from '@react-three/drei';
 import { useMediaQuery } from 'react-responsive';
 
 const ReactLogo = (props) => {
-    const { nodes, materials } = useGLTF('models/react.glb');
+    const { nodes, materials } = useGLTF('/models/react.glb');
 
     // Define media queries for different screen sizes
     const isSmall = useMediaQuery({ maxWidth: 440 });
@@ -30,6 +30,6 @@ const ReactLogo = (props) => {
     );
 };
 
-useGLTF.preload('models/react.glb');
+useGLTF.preload('/models/react.glb');
 
 export default ReactLogo;
