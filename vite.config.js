@@ -6,11 +6,17 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     include: ['three', '@react-three/fiber', '@react-three/drei'],
+    esbuildOptions: {
+      target: 'esnext'
+    }
   },
   build: {
+    target: 'esnext',
     chunkSizeWarningLimit: 2000,
-    commonjsOptions: {
-      include: [/three/, /node_modules/],
-    },
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      }
+    }
   }
 })
