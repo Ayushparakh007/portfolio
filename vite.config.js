@@ -11,10 +11,10 @@ export default defineConfig({
           'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
           'react-vendor': ['react', 'react-dom'],
           'animation': ['gsap', '@gsap/react'],
-          'utils': ['react-responsive', 'leva', 'maath']
+          'utils': ['react-responsive', 'leva']
         }
       }
     },
-    chunkSizeWarningLimit: 1000
+    chunkSizeWarningLimit: 2000
   }
 })
