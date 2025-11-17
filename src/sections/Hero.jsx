@@ -4,7 +4,7 @@ import { PerspectiveCamera } from '@react-three/drei';
 
 import  HackerRoom  from '../components/HackerRoom.jsx';
 import CanvasLoader from "../components/CanvasLoader.jsx";
-import {Leva, useControls} from "leva";
+// import {Leva, useControls} from "leva";
 import {useMediaQuery} from "react-responsive";
 import Target from "../components/Target.jsx"
 import ReactLogo from "../components/ReactLogo.jsx";
@@ -78,8 +78,8 @@ const Hero = () => {
             </div>
 
             <div className="w-full h-full absolute inset-0">
-                <Leva/>
-                <Canvas 
+                {/* <Leva/> */}
+                <Canvas
                     className="w-full h-full"
                     dpr={[1, 2]}
                     gl={{ 
