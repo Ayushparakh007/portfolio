@@ -5,16 +5,18 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
+    chunkSizeWarningLimit: 2000,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
-          'react-vendor': ['react', 'react-dom'],
-          'animation': ['gsap', '@gsap/react'],
-          'utils': ['react-responsive', 'leva']
+        manualChunks(id) {
+          if (id.includes('three') || id.includes('@react-three')) {
+            return 'three-vendor';
+          }
+          if (id.includes('gsap')) {
+            return 'animation';
+          }
         }
       }
-    },
-    chunkSizeWarningLimit: 2000
+    }
   }
 })
