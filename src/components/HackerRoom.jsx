@@ -7,18 +7,26 @@ Source: https://sketchfab.com/3d-models/commodore-64-computer-full-pack-1f43612f
 Title: Commodore 64 || Computer (Full Pack)
 */
 
-import {useGLTF, useTexture} from '@react-three/drei'
+import { useGLTF, useTexture } from '@react-three/drei'
+import { useMemo } from 'react'
 
 export default function Model(props) {
     const monitorTexture = useTexture('textures/desk/monitor.png')
-    const screenTexture =useTexture('/textures/desk/screen.png')
     const { nodes, materials } = useGLTF('/model1/Computer.gltf')
+    
+    // Memoize materials to prevent re-creation
+    const optimizedMaterials = useMemo(() => ({
+        ...materials,
+        computer_details: materials.computer_details,
+        computer_keyboard: materials.computer_keyboard,
+        computer_main_body: materials.computer_main_body,
+    }), [materials])
     return (
         <group {...props} dispose={null}>
             <group position={[-1.258, 0.195, 2.2]}>
-                <mesh geometry={nodes.Object_4.geometry} material={materials.computer_details} />
-                <mesh geometry={nodes.Object_5.geometry} material={materials.computer_keyboard} />
-                <mesh geometry={nodes.Object_6.geometry} material={materials.computer_main_body} />
+                <mesh geometry={nodes.Object_4.geometry} material={optimizedMaterials.computer_details} />
+                <mesh geometry={nodes.Object_5.geometry} material={optimizedMaterials.computer_keyboard} />
+                <mesh geometry={nodes.Object_6.geometry} material={optimizedMaterials.computer_main_body} />
             </group>
             <group position={[0.542, -0.111, -4.23]}>
                 <mesh geometry={nodes.Object_14.geometry}>

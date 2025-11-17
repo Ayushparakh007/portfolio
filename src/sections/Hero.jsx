@@ -70,7 +70,7 @@ const Hero = () => {
 
     return (
         <section className="min-h-screen w-full flex flex-col relative" id="home">
-            <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
+            <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3 relative z-10">
                 <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">
                     Hi, I am Ayush Parakh <span className="waving-hand">👋</span>
                 </p>
@@ -79,7 +79,16 @@ const Hero = () => {
 
             <div className="w-full h-full absolute inset-0">
                 <Leva/>
-                <Canvas className="w-full h-full">
+                <Canvas 
+                    className="w-full h-full"
+                    dpr={[1, 2]}
+                    gl={{ 
+                        antialias: true,
+                        alpha: false,
+                        powerPreference: 'high-performance'
+                    }}
+                    performance={{ min: 0.5 }}
+                >
                     <Suspense fallback={<CanvasLoader />}>
 
                         <PerspectiveCamera makeDefault position={[0, 0, 30]} />

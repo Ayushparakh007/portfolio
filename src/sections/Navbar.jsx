@@ -1,8 +1,4 @@
-// import React from 'react'
-
-
 import { useState } from 'react';
-
 import { navLinks } from '../constants/index.js';
 
 // eslint-disable-next-line react/prop-types
