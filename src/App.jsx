@@ -1,26 +1,29 @@
+import { lazy, Suspense } from 'react';
 import Navbar from "./sections/Navbar.jsx";
 import Hero from "./sections/Hero.jsx";
-import About from "./sections/About.jsx";
-import Projects from "./sections/Projects.jsx";
-import Client from "./sections/Client.jsx";
-import Contact from "./sections/Contact.jsx";
-import Footer from "./sections/Footer.jsx";
-import Experience from "./sections/Experience.jsx";
 
+// Lazy load sections below the fold
+const About = lazy(() => import("./sections/About.jsx"));
+const Projects = lazy(() => import("./sections/Projects.jsx"));
+const Client = lazy(() => import("./sections/Client.jsx"));
+const Experience = lazy(() => import("./sections/Experience.jsx"));
+const Contact = lazy(() => import("./sections/Contact.jsx"));
+const Footer = lazy(() => import("./sections/Footer.jsx"));
 
 const App = () => {
     return (
         <main className="max-w-7xl mx-auto">
             <Navbar/>
             <Hero/>
-            <About/>
-            <Projects/>
-            <Client/>
-            <Experience/>
-            <Contact/>
-            <Footer/>
+            <Suspense fallback={<div className="w-full h-20" />}>
+                <About/>
+                <Projects/>
+                <Client/>
+                <Experience/>
+                <Contact/>
+                <Footer/>
+            </Suspense>
         </main>
-
     )
 }
 export default App
